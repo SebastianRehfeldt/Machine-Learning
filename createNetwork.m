@@ -1,4 +1,4 @@
-x = bigDataSet; %dataset %intRes21 %bigDataSet %intRes31
+x = intRes31; %dataset %bigDataSet %intRes11 %intRes21 %intRes31
 t = Target; %datasetTarget %Target
 
 net = perceptron;

@@ -18,7 +18,7 @@ end
 trueDigits=0;
 for i = 1:50
    should = mod(i,10);
-   if should == classifiedResults(i)
+   if should == mod(classifiedResults(i),10)
        trueDigits = trueDigits + 1;
    end
 end
