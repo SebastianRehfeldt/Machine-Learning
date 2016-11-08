@@ -1,7 +1,7 @@
 testResults = transpose(sim(network1,testSetTransposed));
 
 testResults(:,1) = testResults(:,1) * 0.5;
-testResults(:,2) = testResults(:,2) * 500;
+testResults(:,3) = testResults(:,3) * 500;
 
 for i=1:length(testResults)
     max = 1;
@@ -64,7 +64,7 @@ end
 sensPrediction = tpPrediction/(tpPrediction+fnPrediction);
 sensDetection  = tpDetection /(tpDetection +fnDetection);
 
-%specificity - how many false seizures did it predict - should be low???
+%specificity - how many no seizures did it predict
 %               if we do not have a seizure, how sure can we be that we
 %               will not predict a seizure
 %               it is not bad if we have false alarms, but it should not be
@@ -88,5 +88,5 @@ precDetectionNoSeizure  = tnDetection/ (tnDetection +fnDetection);
 resPrediction = [sensPrediction,specPrediction,precPrediction,precPredictionNoSeizure];
 resDetection  = [sensDetection,specDetection,precDetection,precDetectionNoSeizure];
 
-resPrediction
-%resDetection
+%resPrediction
+resDetection
