@@ -1,17 +1,20 @@
-testResults = transpose(sim(network1,testSetTransposed));
+testResults = sim(network1,testSet);
 
-testResults(:,1) = testResults(:,1) * 0.5;
-testResults(:,3) = testResults(:,3) * 500;
+%specialize for prediction
+%testResults(2,:) = testResults(2,:) * 1000;
+
+%specialize for detection
+testResults(3,:) = testResults(3,:) * 1000;
 
 for i=1:length(testResults)
     max = 1;
     for j=2:4
-        if(testResults(i,j)>=testResults(i,max))
+        if(testResults(j,i)>=testResults(max,i))
            max=j; 
         end
     end
-    testResults(i,:) = zeros(4,1);
-    testResults(i,max)=1;
+    testResults(:,i) = zeros(4,1);
+    testResults(max,i)=1;
 end
 
 tpPrediction = 0;
@@ -26,14 +29,14 @@ fpDetection = 0;
 
 for i=1:length(testResults)
     %prediction
-    if(testResults(i,2)==testTargetMatrix(i,2))
-       if(testResults(i,2)==1)
+    if(testResults(2,i)==testTargetMatrix(2,i))
+       if(testResults(2,i)==1)
            tpPrediction = tpPrediction+1;
        else
            tnPrediction = tnPrediction+1;
        end
     else
-       if(testResults(i,2)==1)
+       if(testResults(2,i)==1)
            fpPrediction = fpPrediction+1;
        else
            fnPrediction = fnPrediction+1;
@@ -41,14 +44,14 @@ for i=1:length(testResults)
     end
 
     %detection
-    if(testResults(i,3)==testTargetMatrix(i,3))
-       if(testResults(i,3)==1)
+    if(testResults(3,i)==testTargetMatrix(3,i))
+       if(testResults(3,i)==1)
            tpDetection = tpDetection+1;
        else
            tnDetection = tnDetection+1;
        end
     else
-       if(testResults(i,3)==1)
+       if(testResults(3,i)==1)
            fpDetection = fpDetection+1;
        else
            fnDetection = fnDetection+1;
