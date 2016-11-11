@@ -3,7 +3,7 @@ function [trainingSet,trainingTargetMatrix, testSet, testTargetMatrix] = build_s
     % unbalance - how many more interictal points will there be compared to the seizure points
     
     % equilibrate the nº of points of the several classes in the training set
-    dataset = load('54802.mat');
+    dataset = load('G4/112502.mat');
     TRG = dataset.Trg;
     dataset = dataset.FeatVectSel;
 

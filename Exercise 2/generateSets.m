@@ -1,4 +1,4 @@
-dataset = load('54802.mat');
+dataset = load('G4/112502.mat');
 TRG = dataset.Trg;
 
 % typical trainingset -> 70% seizures, with nº seizure points = nº interictal points
