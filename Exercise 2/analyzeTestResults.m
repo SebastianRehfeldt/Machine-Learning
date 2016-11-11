@@ -1,7 +1,7 @@
 testResults = sim(network1,testSet3);
 
 %specialize for prediction
-testResults(2,:) = testResults(2,:) * 7.65*10^13;
+testResults(2,:) = testResults(2,:) * 7.55*10^13;
 
 %specialize for detection
 %testResults(3,:) = testResults(3,:) * 1065;
