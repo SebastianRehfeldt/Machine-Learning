@@ -1,10 +1,10 @@
-testResults = sim(network1,testSet);
+testResults = sim(network1,testSet3);
 
 %specialize for prediction
 %testResults(2,:) = testResults(2,:) * 1000;
 
 %specialize for detection
-testResults(3,:) = testResults(3,:) * 1000;
+testResults(3,:) = testResults(3,:) * 1065;
 
 for i=1:length(testResults)
     max = 1;
@@ -29,7 +29,7 @@ fpDetection = 0;
 
 for i=1:length(testResults)
     %prediction
-    if(testResults(2,i)==testTargetMatrix(2,i))
+    if(testResults(2,i)==testTargetMatrix3(2,i))
        if(testResults(2,i)==1)
            tpPrediction = tpPrediction+1;
        else
@@ -44,7 +44,7 @@ for i=1:length(testResults)
     end
 
     %detection
-    if(testResults(3,i)==testTargetMatrix(3,i))
+    if(testResults(3,i)==testTargetMatrix3(3,i))
        if(testResults(3,i)==1)
            tpDetection = tpDetection+1;
        else
