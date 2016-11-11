@@ -1,10 +1,10 @@
-testResults = sim(network1,testSet);
+testResults = sim(patternnet,testSet);
 
 %specialize for prediction
-testResults(2,:) = testResults(2,:) * 7.55*10^13;
+%testResults(2,:) = testResults(2,:) * 239;
 
 %specialize for detection
-%testResults(3,:) = testResults(3,:) * 1065;
+testResults(3,:) = testResults(3,:) * 795;
 
 for i=1:length(testResults)
     max = 1;
@@ -91,5 +91,5 @@ precDetectionNoSeizure  = tnDetection/ (tnDetection +fnDetection);
 resPrediction = [sensPrediction,specPrediction,precPrediction,precPredictionNoSeizure];
 resDetection  = [sensDetection,specDetection,precDetection,precDetectionNoSeizure];
 
-resPrediction
-%resDetection
+%resPrediction
+resDetection
