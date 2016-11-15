@@ -1,4 +1,4 @@
-testResults = sim(network1_high,testSet);
+testResults = netc(testSet);
 
 %specialize for prediction
 testResults(2,:) = testResults(2,:) * 1;
