@@ -1,0 +1,23 @@
+True Positives
+2135 |63
+
+True Negatives
+110509 |536602
+
+False Positives
+424302 |188
+
+False Negatives
+269 |362
+
+Sensitivity
+0.8881 |0.14824
+
+Specificity
+0.20663 |0.99965
+
+Prec (Seizure)
+0.0050066 |0.251
+
+Prec (No Seizure)
+0.99757 |0.99933
