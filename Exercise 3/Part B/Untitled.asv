@@ -1,0 +1,13 @@
+% discrete transfer function
+num = [2];
+den = [1 4.1 5.1 1.8];
+[num, den]= c2dm(num,den, 1,'zoh');
+
+output = load('discreteOut.mat');
+input = load('inputRand.mat');
+matrix = []
+
+% build matrix
+for i=4:length(output)
+    matrix = [: discreteOut(i-3) discreteOut(i-2) discreteOut(i-1) input(i-2) input(i-2) input(i-3) discreteOut(i)] 
+end
