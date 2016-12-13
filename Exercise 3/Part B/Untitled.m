@@ -22,4 +22,15 @@ testing = matrix(round(length(matrix)*0.7)+1:length(matrix),:);
 %training
 %testing
 
-fismat = genfis3(training(:,1:6), training(:,7), 'sugeno',5)
+fismat = genfis3(training(:,1:6), training(:,7), 'sugeno',5);
+
+num = [2];
+den = [1 4.1 5.1 1.8];
+
+%compute roots of transfer dunction 
+rts = roots(den);
+timeconst = zeros(length(rts),1);
+
+for i=1:length(rts)
+    timeconst(i)=-1/rts(i)
+end
